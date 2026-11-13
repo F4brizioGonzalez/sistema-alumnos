@@ -105,7 +105,7 @@ pipeline {
                     trap 'rm -f "$ASKPASS"' EXIT
                     printf '#!/bin/sh\ncase "$1" in Username*) echo "$GIT_USER" ;; *) echo "$GIT_TOKEN" ;; esac\n' > "$ASKPASS"
                     chmod 700 "$ASKPASS"
-                    GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 git push origin HEAD --follow-tags
+                    GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 git push origin HEAD:main --follow-tags
                     '''
                 }
             }
